@@ -1,21 +1,17 @@
-module Lib where
+{-# LANGUAGE OverloadedStrings #-}
+module Lib (app) where
 
-import GHC.Generics
-import Data.Aeson
+import           Data.Aeson
+import           GHC.Generics
+import           Network.HTTP.Types
+import           Network.Wai
 
-import Aws.Lambda
 
-data Person = Person
-  { personName :: String
-  , personAge :: Int
-  } deriving (Generic)
+app :: Application
+app _ respond = do
+    putStrLn "I've done some IO here"
+    respond $ responseLBS
+        status200
+        [("Content-Type", "text/plain")]
+        "Hello, Web!"
 
-instance FromJSON Person
-instance ToJSON Person
-
-handler :: Person -> Context () -> IO (Either String Person)
-handler person context =
-  if personAge person > 0 then
-    return (Right person)
-  else
-    return (Left "A person's age must be positive")

@@ -11,6 +11,13 @@ packages:
       sha256: e42aed32797952f60afbb2311641b47ae5037520f8d06060dd66469060787965
   original:
     hackage: aws-lambda-haskell-runtime-3.0.3
+- completed:
+    hackage: aws-lambda-haskell-runtime-wai-1.0.2@sha256:5ce655247461b562c8048011ddc022130135a03417def8203aad92366cc979ab,1965
+    pantry-tree:
+      size: 388
+      sha256: 377e8fbc19ff246731bd466ffc1960b6ce9c88f83908be92a8681e46ff21cdd8
+  original:
+    hackage: aws-lambda-haskell-runtime-wai-1.0.2
 snapshots:
 - completed:
     size: 533252

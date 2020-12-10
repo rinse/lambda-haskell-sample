@@ -52,6 +52,7 @@ packages:
 #
 extra-deps:
 - aws-lambda-haskell-runtime-3.0.3
+- aws-lambda-haskell-runtime-wai-1.0.2
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
