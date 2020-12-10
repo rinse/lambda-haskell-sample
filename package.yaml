@@ -1,0 +1,38 @@
+name:                lambda-haskell-sample
+version:             0.1.0
+github:              "rinse/lambda-haskell-sample"
+license:             BSD3
+author:              "rinse"
+maintainer:          "rinse@neko2.net"
+copyright:           "2020 rinse"
+
+description:         Please see the README on GitHub at <https://github.com/rinse/lambda-haskell-sample#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aws-lambda-haskell-runtime >= 3.0.0
+- aeson
+
+library:
+  source-dirs: src
+
+executables:
+  bootstrap:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -O2
+    - -static
+    - -with-rtsopts=-N
+    cc-options: -static
+    ld-options: -static -pthread
+    dependencies:
+    - lambda-haskell-sample
+
+default-extensions:
+  - RecordWildCards
+  - OverloadedLists
+  - OverloadedStrings
+  - DeriveGeneric
