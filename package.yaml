@@ -15,6 +15,7 @@ dependencies:
 - aeson
 - http-types
 - wai
+- warp
 
 library:
   source-dirs: src
@@ -34,6 +35,20 @@ executables:
     ld-options: -static -pthread
     dependencies:
     - lambda-haskell-sample
+
+# Executables for dev is placed as the test comptype.
+# This is because all of the executable comps will be built when any exe component is built.
+# https://docs.haskellstack.org/en/stable/build_command/#target-syntax
+tests:
+  lambda-haskell-sample-dev:
+    main:                Main.hs
+    source-dirs:         dev
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    dependencies:
+    - lambda-haskell-sample
+
 
 default-extensions:
   - RecordWildCards
