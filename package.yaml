@@ -25,6 +25,7 @@ executables:
     - -rtsopts
     - -O2
     - -static
+#   - -static -optl-static -optl-pthread -fPIC
     - -with-rtsopts=-N
     cc-options: -static
     ld-options: -static -pthread
